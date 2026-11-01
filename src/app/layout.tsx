@@ -1,7 +1,16 @@
-
 import type { Metadata } from "next";
-import { Space_Grotesk, Geist_Mono } from "next/font/google";
-import "./globals.css"
+import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+
+import ThemeProvider from "@/components/ThemeProvider";
+import { cn } from "@/lib/utils";
+
+import "./globals.css";
+
+const geist = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -33,16 +42,29 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={cn(
+        "h-full",
+        "antialiased",
+        geist.variable,
+        spaceGrotesk.variable,
+        geistMono.variable,
+        "font-sans",
+      )}
     >
-      <body className="">
-        {children}
+      <body className="min-h-full">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
