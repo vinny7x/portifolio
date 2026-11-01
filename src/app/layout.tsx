@@ -26,15 +26,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vinny7x | Desenvolvedor Full Stack",
+    default: "Vinny7x | Desenvolvedor e entusiasta de tecnologia",
     template: "%s | Vinny7x",
   },
   description:
-    "Portfólio de Vinny7x, desenvolvedor Full Stack focado na criação de aplicações web modernas.",
+    "Oi, sou Vinny! Desenvolvo aplicações web, exploro novas tecnologias e transformo ideias em projetos. Conheça um pouco do meu trabalho.",
   keywords: [
     "Vinny7x",
-    "Desenvolvedor Full Stack",
-    "Desenvolvimento Web",
+    "Desenvolvedor Web",
+    "Desenvolvimento Full Stack",
     "React",
     "Next.js",
     "TypeScript",
@@ -54,6 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         spaceGrotesk.variable,
         geistMono.variable,
         "font-sans",
+        "scroll-smooth"
       )}
     >
       <body className="min-h-full">
